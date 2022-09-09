@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phalaenopsis Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <style>
+
+        body{
+            background-color: #356974;
+            font-family: 'Century Gothic',serif
+
+        }
+        .nav-item{
+            margin-left: 20px;
+            width: 145px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #orchid_main{
+            position: absolute;
+            top: 12%;
+            left: 50%;
+        }
+        #name{
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- darkcyan, darkseagreen, #356974; #025a6c; #0c4755" -->
+
+<th:block th:replace="fragments/header"></th:block>
+<br>
+<div class="container">
+<h1 style="color: white;">
+    Phalaenopsis Care претставува веб сајт<br>
+    каде што може да најдете<br>
+    информации за грижа<br>
+    за важата <br>
+    Phalaenopsis орхидеја
+</h1>
+    <br><br><br><br><br><br>
+    <div sec:authorize="isAnonymous()" style="width: 732px; display: flex; ">
+        <a id="login" href="/login" style="flex:1; margin-right: 20px;" class="btn btn-lg btn-dark">Најава</a>
+        <a id="register" href="/register" style="flex:1;" class="btn btn-lg btn-dark">Регистрација</a>
+    </div>
+
+    <div sec:authorize="isAuthenticated()" th:if="${!hasCertificate}" style="width: 732px; display: flex; ">
+        <a id="osvoj_sertifikat" href="/certification" style="flex:1; margin-right: 20px;" class="btn btn-lg btn-info">Освој сертификат</a>
+        <a id="logout" href="/logout" style="flex:1;" class="btn btn-lg btn-dark">Одјави се</a>
+    </div>
+
+    <div sec:authorize="isAuthenticated()" th:if="${hasCertificate}" style="width: 732px; display: flex; ">
+        <a href="/download_certificate" style="flex:1; margin-right: 20px;" class="btn btn-lg btn-info">Преземи сертификат</a>
+        <a id="logout" href="/logout" style="flex:1;" class="btn btn-lg btn-dark">Одјави се</a>
+    </div>
+<br>
+    <div sec:authorize="isAuthenticated()" style="width: 732px; display: flex; ">
+        <a id="profile" href="/profile" style="flex:1;" class="btn btn-lg btn-dark">Мој Профил</a>
+    </div>
+
+
+    <br>
+    <a class="btn btn-lg btn-outline-info" href="https://en.wikipedia.org/wiki/Phalaenopsis">Притиснете овде за повеќе информации за Phalaenopsis (Wikipedia)</a>
+
+<img style="z-index: -5; float:right;" id="orchid_main" src="images/orchid_main.png" height="586" width="643"/>
+</div>
+
+
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+</body>
+</html>

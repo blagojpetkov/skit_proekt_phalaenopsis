@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сертификација</title>
+
+    <!--    Animate on scroll-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: #356974;
+            font-family: 'Century Gothic',serif
+
+        }
+.nav-item{
+            margin-left: 20px;
+            width: 145px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #name{
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+<th:block th:replace="fragments/header"></th:block>
+
+
+
+<div data-aos="fade-up" class="container my-5" style="background-color: gray; border-radius: 10px; border: 10px solid darkslategray; color: white; background-image: url('images/orchid_main.png'); height: 600px;">
+    <br>
+    <h4 style="font-weight: bolder; font-size: 35px" class="text-center">Сертификат за завршена обука на:</h4>
+    <br><br>
+    <h2 style="font-weight: bolder; font-size: 50px;" class="text-center" th:text ="${name} + ' ' + ${surname}"></h2>
+    <br><br>
+    <h1 style="font-weight: bolder; font-size: 45px" class="text-center">Сертификатот се однесува на завршена обука за одгледување на орхидеи од видот Phalaenopsis на ден <span th:text="${date}"></span></h1>
+    <img height="150px;" src="images/seal_of_approval.png">
+    <div class="d-flex justify-content-center">
+    <a id="download_certificate" href="/download_certificate" class="btn btn-lg btn-danger" style="position: absolute;bottom: 30px;">Преземи сертификат</a>
+    </div>
+</div>
+
+
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
